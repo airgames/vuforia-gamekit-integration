@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.qualcomm.QCARSamples.ImageTargets"
+      android:versionCode="150"
+      android:versionName="1.5">
+      
+    <!-- 
+      NOTE 1: The setting 'android:launchMode="singleTask"' makes sure
+      that the activity can begin only one task and the device can hold only 
+      one instance of the activity at a time. However, it allows other 
+      activities to be part of its task (unlike the 'singleInstance' mode). 
+      It's at the root of the activity stack, but other activities (necessarily 
+      "standard" and "singleTop" activities) can be launched into the same task.
+      If this attribute is not set, the default value 'standard' is used, which 
+      would allow the activity to be launched multiple times.
+      
+      NOTE 2: The setting 'android:debuggable' means whether or not the 
+      application can be debugged on a real device (on the emulator it seems
+      optional), i.e. it affects whether you can actually step through your 
+      code in the debugger. It needs to be removed when the application is 
+      released!
+      
+      NOTE 3: The setting
+      'android:theme="@android:style/Theme.NoTitleBar.Fullscreen"' ensures
+      that the application starts in full screen mode without a title bar.
+    -->
+    <application
+        android:icon="@drawable/icon_vuforia"
+        android:label="@string/app_name"
+        android:description="@string/app_description"
+        android:launchMode="singleTask"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:debuggable="true">
+
+        <!--
+          NOTE: The setting 'android:configChanges="orientation|keyboardHidden"'
+          makes sure that Android will not destroy and re-create the activity 
+          when the user flips the keyboard or changes the orientation of the 
+          device, but calls Activity.onConfigurationChanged() instead.
+          
+          NOTE 2: in order to prevent automatic reactions to orientation 
+          changes in addition to setting proper values for 
+          'android:configChanges', you also must explicitly specify the screen 
+          orientation used by the application, either by setting the attribute 
+          'android:screenOrientation' or in code by calling 
+          Activity.setRequestedOrientation() 
+        -->
+        <activity android:label="@string/app_name"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:name=".ImageTargets">
+                  
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+    
+    <!--  
+        android:minSdkVersion = application's required minimum API level to run 
+        android:targetSdkVersion = application's targeted API level
+        
+        NOTE: Native OpenGL ES 1.x is supported from API level 4 (1.6),
+        native OpenGL ES 2.0 is supported from API level 5 (2.0). API level 5
+        (Android SDK 2.0) and 6 (Android SDK 2.0.1) are no longer available for
+        download and testing, therefore we set the minimum SDK version to 
+        API level 7 (Android 2.1). We don't set a target SDK version.
+    -->
+    <uses-sdk android:minSdkVersion="8" />
+    
+    <!-- 
+        The OpenGL ES version required by the application.
+        
+        NOTE 1: If you skip this tag, it will default to OpenGL ES 1.0.
+        
+        NOTE 2: Use 0x00010001 for OpenGL ES 1.1, or 0x00020000 for 
+        OpenGL ES 2.0.
+        
+        NOTE 3: An application can assume that if a platform supports a given 
+        OpenGL ES version, it also supports ALL numerically lower OpenGL ES 
+        versions. Therefore, an application that requires both OpenGL ES 1.x 
+        and OpenGL ES 2.0 must specify that it requires OpenGL ES 2.0.  
+    -->
+    <!-- <uses-feature android:glEsVersion="0x00020000" /> -->
+    
+    <!--
+         The application requires a camera.
+         
+         NOTE: Any application that requests the CAMERA permission but does not
+         declare any camera features with the <uses-feature> element will be 
+         assumed to use all camera features (auto-focus and flash). Thus, the 
+         application will not be compatible with devices that do not support 
+         all camera features. Please use <uses-feature> to declare only the 
+         camera features that your application does need. For instance, if you 
+         request the CAMERA permission, but you do not need auto-focus or 
+         flash, then declare only the android.hardware.camera feature. The 
+         other camera features that you do not request will no longer be 
+         assumed as required. 
+    -->
+    <uses-feature android:name="android.hardware.camera" />
+    
+    <!-- 
+        Add this permission to get access to the camera
+    -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- 
+        Add this permission to allow opening network sockets
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
+    <!-- 
+        Add this permission to check which network access properties (e.g. active type: 3G/WiFi).
+     -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!--
+        Add this permission to access WLAN MAC address.
+     -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 
+        Add this permission to access HW ID.
+     -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    
+</manifest>

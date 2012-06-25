@@ -1,0 +1,2 @@
+/Users/erikvillegas/Development/Android/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/arm-linux-androideabi-ar cr ../../../../Ogre-1.8rc/Bin/lib/libRenderSystem_GLES2Static.a  CMakeFiles/RenderSystem_GLES2.dir/__/__/__/RenderSystem_GLES2/compile_RenderSystem_GLES2_0.cpp.o
+/Users/erikvillegas/Development/Android/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/arm-linux-androideabi-ranlib ../../../../Ogre-1.8rc/Bin/lib/libRenderSystem_GLES2Static.a

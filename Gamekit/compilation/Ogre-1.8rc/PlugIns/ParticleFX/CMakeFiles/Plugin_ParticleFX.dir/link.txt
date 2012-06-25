@@ -1,0 +1,2 @@
+/Users/erikvillegas/Development/Android/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/arm-linux-androideabi-ar cr ../../../../Ogre-1.8rc/Bin/lib/libPlugin_ParticleFXStatic.a  CMakeFiles/Plugin_ParticleFX.dir/__/__/__/Plugin_ParticleFX/compile_Plugin_ParticleFX_0.cpp.o
+/Users/erikvillegas/Development/Android/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/arm-linux-androideabi-ranlib ../../../../Ogre-1.8rc/Bin/lib/libPlugin_ParticleFXStatic.a

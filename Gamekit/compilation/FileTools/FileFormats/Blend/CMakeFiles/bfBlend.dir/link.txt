@@ -1,0 +1,2 @@
+/Users/erikvillegas/Development/Android/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/arm-linux-androideabi-ar cr libbfBlend.a  CMakeFiles/bfBlend.dir/fbtBlend.o CMakeFiles/bfBlend.dir/Generated/bfBlender.o
+/Users/erikvillegas/Development/Android/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/arm-linux-androideabi-ranlib libbfBlend.a

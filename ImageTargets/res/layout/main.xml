@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+    In FrameLayout children are drawn in a stack, with the most recently 
+    added child on top.
+    
+    Due to a strange bug in Android, the z-order of the views does not seem to 
+    be guaranteed. For example, if we add the camera preview layer and the 
+    GLView here, first of all GLView has to be added to the layout BEFORE 
+    CameraPreview to be on top instead of vice versa due to a strange reason.    
+    This works upon a fresh start, and the camera view sits underneath
+    the GL view. However, upon pressing the HOME button and returning,
+    the order of the layers gets swapped and stays wrong (or vice versa: if
+    started with a wrong order, it gets correct).
+    
+    Apparently the current version of the framework makes no guarantees about 
+    what order the 2 SurfaceViews would be placed in the window manager, it is 
+    just happenstance, and could change based on various conditions that may or 
+    may not have the same result in the future...
+    
+    Calling the functions (available after Android 2.0)
+    glView.setZOrderMediaOverlay(true) or using glView.bringToFront() 
+    doesn't seem to fix the problem either.
+    
+    To overcome this problem, we just construct the views dynamically upon
+    calling onResume to guarantee the correct order and therefore leave the 
+    layout empty now.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" />
